@@ -1,0 +1,34 @@
+import { Trash2, Pencil } from "lucide-react"
+
+export default function Tasks({task, dispatch}) {
+
+
+    return (
+        <section className="w-11/12 mx-auto border border-zinc-200 rounded-md">
+          {task.map(tarea => (
+            <article key={tarea.id} className="flex items-center gap-5 py-3 px-5 border-b border-zinc-200">
+              <input 
+                type="checkbox" 
+                id={tarea.id}
+                checked={tarea.completed}
+                className="accent-green-400 w-5 h-5 cursor-pointer"
+                onClick={() => dispatch({type: 'TASK-COMPLETED', payload: tarea.id})}
+                />
+              <label 
+                className={`cursor-pointer ${tarea.completed && 'line-through'}`} 
+                htmlFor={tarea.id}
+              >{tarea.task}</label>
+              {tarea.completed &&
+                <p className="ml-auto bg-green-100 text-green-500 font-semibold py-1.5 px-3 rounded-md border border-green-200 shadow">Completada</p>
+              }
+              <button className={`${!tarea.completed && 'ml-auto'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}>
+                <Pencil size={19} />
+              </button>
+              <button className="border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow">
+                <Trash2 size={19} color="red" />
+              </button>
+            </article>
+          ))}
+        </section>
+    )
+}
