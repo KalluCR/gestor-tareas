@@ -25,7 +25,7 @@ export default function AddTasks({dispatch}) {
     }
 
     return (
-        <form className="bg-purple-100 w-11/12 p-2.5 rounded-md mx-auto my-8 flex gap-2.5">
+        <form className="bg-purple-100 w-11/12 p-2.5 rounded-md mx-auto my-8 flex flex-col gap-2.5 md:flex-row">
             <input
                 type="text"
                 placeholder={error ? 'Agrega un texto' : 'Qué tarea necesitas hacer?'}
@@ -34,7 +34,7 @@ export default function AddTasks({dispatch}) {
                 onChange={handleTask} />
             <button
                 type="submit"
-                className="text-white bg-indigo-700 w-1/5 rounded-md py-2 px-3 cursor-pointer hover:bg-indigo-600 hover:shadow transition-all"
+                className="w-full text-white bg-indigo-700 md:w-1/5 rounded-md py-2 px-3 cursor-pointer hover:bg-indigo-600 hover:shadow transition-all"
                 onClick={handleSubmit}
             >+ Agregar Tarea</button>
         </form>
