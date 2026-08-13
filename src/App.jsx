@@ -26,14 +26,14 @@ function App() {
 
   return (
     <>
-      <main className="bg-white max-w-4xl mx-auto my-12 rounded-md shadow-md">
-        <header className="mx-auto px-10 py-5 border-b border-zinc-200 flex gap-5">
-          <div className="bg-indigo-700 p-2 rounded-md shadow">
+      <main className=" bg-white md:max-w-4xl mx-auto my-12 rounded-md shadow-md">
+        <header className="mx-auto px-5 md:px-10 py-5 border-b border-zinc-200 flex gap-5">
+          <div className="bg-indigo-700 p-2 rounded-md shadow flex items-center">
             <ListTodo size={50} color="white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold">Gestor de Tareas</h1>
-            <p className="text-zinc-500">Organiza tus tareas y sé más productivo</p>
+            <h1 className="text-2xl md:text-3xl font-bold">Gestor de Tareas</h1>
+            <p className="text-zinc-500 text-sm md:text-lg">Organiza tus tareas y sé más productivo</p>
           </div>
         </header>
         <AddTasks
