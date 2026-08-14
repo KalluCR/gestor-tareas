@@ -45,6 +45,14 @@ export function reducer(state = initialState, action) {
             tasks: state.tasks.filter(tarea => !tarea.completed)
         }
     }
+    if(action.type === 'DELETE-TASK') {
+        const updatedState = state.tasks.filter(task => task.id !== action.payload)
+
+        return {
+            ...state,
+            tasks: updatedState
+        }
+    }
 
     return state
 }

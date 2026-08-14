@@ -13,7 +13,7 @@ export default function Tasks({task, dispatch}) {
                   id={tarea.id}
                   checked={tarea.completed}
                   className="accent-green-400 w-5 h-5 cursor-pointer"
-                  onClick={() => dispatch({type: 'TASK-COMPLETED', payload: tarea.id})}
+                  onChange={() => dispatch({type: 'TASK-COMPLETED', payload: tarea.id})}
                   />
                 <div className="flex flex-col gap-2 md:flex-row md:items-center md:w-full md:justify-between">
                   <label
@@ -29,7 +29,10 @@ export default function Tasks({task, dispatch}) {
                 <button className={`${!tarea.completed && 'ml-auto'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}>
                   <Pencil size={19} />
                 </button>
-                <button className="border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow">
+                <button 
+                  className="border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow"
+                  onClick={() => dispatch({type: 'DELETE-TASK', payload: tarea.id})}
+                >
                   <Trash2 size={19} color="red" />
                 </button>
               </div>
