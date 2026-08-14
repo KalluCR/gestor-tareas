@@ -12,7 +12,7 @@ export default function CleanTasks({task, dispatch}) {
             </div>
             {task.length > 0 && (
                 <button
-                className="text-red-500 font-semibold px-7 py-2 border border-zinc-200 rounded-md flex items-center gap-2 cursor-pointer hover:bg-red-50 hover:shadow transition-all"
+                className="text-sm md:text-base text-center text-red-500 font-semibold px-7 py-2 border border-zinc-200 rounded-md flex items-center gap-2 justify-center cursor-pointer hover:bg-red-50 hover:shadow transition-all"
                 onClick={() => dispatch({type: 'CLEAN-TASKS'})}
                 >
                     <RotateCcw size={19} color="red" />

@@ -3,7 +3,7 @@ import { Trash2 } from "lucide-react"
 export default function Filters({filter, onFilterChange, dispatch, tasks}) {
 
   const activeClass = "bg-indigo-700 text-white"
-  const baseClass = "border border-zinc-200 rounded-md py-2 px-3 font-semibold hover:shadow transition-shadow"
+  const baseClass = "text-sm md:text-base border border-zinc-200 rounded-md py-1 px-2 md:py-1.5 md:px-3 font-semibold hover:shadow transition-shadow"
   const disabledClass = "opacity-40"
 
   const hasCompleted = tasks.some(tarea => tarea.completed)
@@ -35,7 +35,7 @@ export default function Filters({filter, onFilterChange, dispatch, tasks}) {
           </button>
         </div>
         <button 
-          className={`w-fit border border-zinc-200 rounded-md py-2 px-3 flex items-center gap-2 text-red-500 font-semibold cursor-not-allowed hover:shadow hover:bg-red-50 transition-all ${!hasCompleted ? disabledClass : "opacity-100 cursor-pointer"}`}
+          className={`text-sm md:text-base w-fit border border-zinc-200 rounded-md py-2 px-3 flex items-center gap-2 text-red-500 font-semibold cursor-not-allowed hover:shadow hover:bg-red-50 transition-all ${!hasCompleted ? disabledClass : "opacity-100 cursor-pointer"}`}
           onClick={() => dispatch({ type: 'DELETE-COMPLETED' })}
           disabled={!hasCompleted}
         >
