@@ -26,8 +26,11 @@ export default function Tasks({task, dispatch}) {
                 </div>
               </div>
               <div className="flex gap-1">
-                <button className={`${!tarea.completed && 'ml-auto'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}>
-                  <Pencil size={19} />
+                <button 
+                  className={`${!tarea.completed && 'ml-auto'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}
+                  onClick={() => dispatch({type: 'ACTIVE-TASK', payload: tarea.id})}
+                  >
+                    <Pencil size={19} />
                 </button>
                 <button 
                   className="border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow"
