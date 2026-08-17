@@ -38,6 +38,7 @@ function App() {
         </header>
         <AddTasks
           dispatch={dispatch}
+          state={state}
         />
         <Filters
           filter={filter}

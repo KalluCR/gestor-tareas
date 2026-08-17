@@ -1,16 +1,25 @@
 export const initialState = {
-    tasks: []
+    tasks: [],
+    activeTask: ''
 }
 
 export function reducer(state = initialState, action) {
 
     if(action.type === 'ADD-TASK') {
 
-        
+        const {completed, ...withoutCompleted} = action.payload 
+
+        let updatedState = []
+        if(state.activeTask) {
+            updatedState = state.tasks.map(task => task.id === state.activeTask ? {...task, ...withoutCompleted} : task )
+        } else {
+            updatedState = [...state.tasks, action.payload]
+        }
 
         return {
             ...state,
-            tasks: [...state.tasks, action.payload]
+            tasks: updatedState,
+            activeTask: ''
         }
     }
 
@@ -51,6 +60,16 @@ export function reducer(state = initialState, action) {
         return {
             ...state,
             tasks: updatedState
+        }
+    }
+
+    if(action.type === 'ACTIVE-TASK') {
+
+
+
+        return {
+            ...state,
+            activeTask: action.payload
         }
     }
 
