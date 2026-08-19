@@ -1,6 +1,6 @@
 import { Trash2, Pencil } from "lucide-react"
 
-export default function Tasks({task, dispatch}) {
+export default function Tasks({task, dispatch, isKawaii}) {
 
 
     return (
@@ -21,19 +21,19 @@ export default function Tasks({task, dispatch}) {
                     htmlFor={tarea.id}
                   >{tarea.task}</label>
                   {tarea.completed &&
-                    <p className="w-fit text-sm bg-green-100 text-green-500 font-semibold py-0.5 px-1.5 rounded-md border border-green-200 shadow">Completada</p>
+                    <p className="w-fit text-sm bg-green-100 text-green-500 font-semibold py-0.5 px-1.5 rounded-md border border-green-200 shadow">Completada {isKawaii && '🧁'}</p>
                   }
                 </div>
               </div>
               <div className="flex gap-1">
                 <button 
-                  className={`${!tarea.completed && 'ml-auto'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}
+                  className={`${!tarea.completed && 'ml-auto'} ${isKawaii && 'bg-purple-100'} border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow`}
                   onClick={() => dispatch({type: 'ACTIVE-TASK', payload: tarea.id})}
                   >
-                    <Pencil size={19} />
+                    <Pencil size={19} className={isKawaii && 'text-purple-800'} />
                 </button>
                 <button 
-                  className="border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow"
+                  className={`border py-2.5 px-4 rounded-md border-zinc-200 cursor-pointer hover:shadow transition-shadow ${isKawaii && 'bg-pink-100'}`}
                   onClick={() => dispatch({type: 'DELETE-TASK', payload: tarea.id})}
                 >
                   <Trash2 size={19} color="red" />
